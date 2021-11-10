@@ -13,7 +13,7 @@ class Director:
         self.console = Console()
         self.jumper = Jumper()
         self.puzzle = Puzzle()
-        letter_input = get_input
+        letter_input = ""
 
 
     def start_game(self):
@@ -23,7 +23,7 @@ class Director:
         self.run_game()
 
     def do_inputs(self):
-        
+        letter_input = get_input
     def do_updates(self):
         verify_letter(letter_input)
 

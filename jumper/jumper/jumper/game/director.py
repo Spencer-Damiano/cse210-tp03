@@ -28,5 +28,6 @@ class Director:
         verify_letter(letter_input)
 
     def do_outputs(self):
+        print()
 
     def run_game(self):

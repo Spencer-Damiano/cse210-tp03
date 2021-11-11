@@ -1,4 +1,6 @@
-
+from console import Console
+from jumper import Jumper
+from puzzle import Puzzle
 class Director:
     """
     Methods

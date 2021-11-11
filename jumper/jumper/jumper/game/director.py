@@ -15,6 +15,7 @@ class Director:
         self.console = Console()
         self.jumper = Jumper()
         self.puzzle = Puzzle()
+        self.run_game = True
         self.letter_input = ""
 
 
@@ -25,12 +26,15 @@ class Director:
         self.run_game()
 
     def do_inputs(self):
-        self.do_inputsletter_input = self.console.get_input()
+        self.letter_input = self.console.get_input()
     def do_updates(self):
         self.puzzle.verify_letter(self.letter_input)
 
     def do_outputs(self):
-        print()
+        self.console.print_output()
 
     def run_game(self):
-        pass
+        while self.run_game:
+            self.do_inputs()
+            self.do_updates()
+            self.do_outputs()

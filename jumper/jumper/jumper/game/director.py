@@ -26,12 +26,7 @@ class Director:
         self.run_game()
 
     def do_inputs(self):
-<<<<<<< HEAD
         self.letter_input = self.console.get_input()
-=======
-        self.do_inputsletter_input = self.console.get_input()
-        
->>>>>>> 5284a8e1038e88f73a57a24dd00765b21ede8215
     def do_updates(self):
         self.puzzle.verify_letter(self.letter_input)
 

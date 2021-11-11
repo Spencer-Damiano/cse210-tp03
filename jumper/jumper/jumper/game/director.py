@@ -25,10 +25,10 @@ class Director:
         self.run_game()
 
     def do_inputs(self):
-        self.letter_input = self.puzzle.read(self, """there needs to be another variable here""")
+        self.do_inputsletter_input = self.console.get_input()
         
     def do_updates(self):
-        verify_letter(letter_input)
+        self.puzzle.verify_letter(self.letter_input)
 
     def do_outputs(self):
         print()

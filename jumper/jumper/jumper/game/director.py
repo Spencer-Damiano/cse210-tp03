@@ -25,7 +25,7 @@ class Director:
         self.run_game()
 
     def do_inputs(self):
-        letter_input = get_input
+        letter_input = get_input()
     def do_updates(self):
         verify_letter(letter_input)
 
@@ -33,3 +33,4 @@ class Director:
         print()
 
     def run_game(self):
+        pass

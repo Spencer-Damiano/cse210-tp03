@@ -11,7 +11,7 @@ class Puzzle:
         picks a word
         """
     
-    def verify_leter(self):
+    def verify_letter(self):
         """
         makes sure the letters are in the word
         """

@@ -11,7 +11,7 @@ class Console:
         prompt (string): The prompt to display on each line.
     """
      
-    def read(self, prompt):
+    def get_input(self, prompt):
         """Gets text input from the user through the screen.
 
         Args: 
@@ -22,18 +22,6 @@ class Console:
             string: The user's input as text.
         """
         return input(prompt)
-
-    def read_number(self, prompt):
-        """Gets numerical input from the user through the screen.
-
-        Args: 
-            self (Screen): An instance of Screen.
-            prompt (string): The prompt to display to the user.
-
-        Returns:
-            float: The user's input as a float.
-        """
-        return float(input(prompt))
         
     def write(self, text):
         """Displays the given text on the screen. 

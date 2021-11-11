@@ -1,24 +1,26 @@
 import random as rd
+from game.jumper import Jumper
+
 class Puzzle:
 
     def __init__(self):
         self.list_words = ["bear", "giraffe", "dog", "cat", "elephant", "computer"]
         self.masked_word = []
         self.current_word = ""
+        self.current_letter = ""
+        self.word_listed = []
         self.length = 0
         self.errors = 0
-        #self.masked_word.append(self.length * "_")
+        self.jumper = Jumper()
 
     def chose_word(self):
         """
         picks a word
+        
         """
-<<<<<<< Updated upstream
-    
-    def verify_letter(self):
-=======
         self.current_word = rd.choice(self.list_words)
         self.length = len(self.current_word)
+        self.word_listed = [char for char in self.current_word]
         return(self.current_word)
 
 
@@ -29,38 +31,24 @@ class Puzzle:
         self.masked_word = ["_"] * self.length
         return(self.masked_word)
 
-    def verify_leter(self, letter):
->>>>>>> Stashed changes
+    def verify_letter(self, letter):
         """
         makes sure the letters are in the word
         """
         self.current_letter = letter
         if self.current_letter in self.current_word:
-            self.masked_word = self.hided_word(letter)
+            self.masked_word = self.reveal_letter(self.current_letter)
+            return self.masked_word
         else:
-            self.errors +=1
+            self.jumper.set_num_incorrect(1)
+            return self.masked_word          
 
-
-    def revel_letter(self):
+    def reveal_letter(self, letter):
         """
         shows letters
         """
-
-        
-def split_word(word):
-    return [char for char in word]
-word = "bear"
-word_listed = split_word(word)
-print(word)
-letter = "r"
-length = len(word)
-masked = []
-masked = ["_"] * length
-#masked.append(length * "_")
-print(masked[0])
-print(masked[3])
-#print(masked)
-for x in range(length):
-   if letter == word_listed[x]:
-       masked[x] = letter
-print(masked)
+        self.current_letter = letter
+        for x in range(self.length):
+            if self.current_letter == self.word_listed[x]:
+                self.masked_word[x] = self.current_letter
+        return(self.masked_word)

@@ -1,6 +1,6 @@
-from console import Console
-from jumper import Jumper
-from puzzle import Puzzle
+from game.console import Console
+from game.jumper import Jumper
+from game.puzzle import Puzzle
 class Director:
     """
     Methods
@@ -15,31 +15,30 @@ class Director:
         self.console = Console()
         self.jumper = Jumper()
         self.puzzle = Puzzle()
-        self.run_game = True
+        self.run = True
         self.letter_input = ""
-
+        self.jumper_guy = ""
+        self.hidden_word = []
 
     def start_game(self):
-        self.do_inputs()
-        self.do_updates()
-        self.do_outputs()
+        self.jumper_guy = self.jumper.create_jumper()
+        self.puzzle.chose_word()
+        self.hidden_word = self.puzzle.hided_word()
         self.run_game()
 
     def do_inputs(self):
-<<<<<<< HEAD
-        self.letter_input = self.console.get_input()
-=======
-        self.do_inputsletter_input = self.console.get_input()
-        
->>>>>>> 5284a8e1038e88f73a57a24dd00765b21ede8215
+        self.letter_input = self.console.get_input("Type in a letter: ")
+
     def do_updates(self):
-        self.puzzle.verify_letter(self.letter_input)
+        self.hidden_word = self.puzzle.verify_letter(self.letter_input)
+        self.jumper_guy = self.jumper.create_jumper()
 
     def do_outputs(self):
-        self.console.print_output()
+        self.console.write(self.jumper_guy)
+        self.console.write(self.hidden_word)
 
     def run_game(self):
-        while self.run_game:
+        while self.run:
             self.do_inputs()
             self.do_updates()
             self.do_outputs()

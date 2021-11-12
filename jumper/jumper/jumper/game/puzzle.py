@@ -40,8 +40,10 @@ class Puzzle:
             self.masked_word = self.reveal_letter(self.current_letter)
             return self.masked_word
         else:
-            self.jumper.set_num_incorrect(1)
-            return self.masked_word          
+            self.errors += 1
+            print(self.errors)
+            self.jumper.set_num_incorrect(self.errors)
+            return self.masked_word        
 
     def reveal_letter(self, letter):
         """

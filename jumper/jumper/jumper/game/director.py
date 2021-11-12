@@ -19,6 +19,7 @@ class Director:
         self.letter_input = ""
         self.jumper_guy = ""
         self.hidden_word = []
+        self.first_run = True
 
     def start_game(self):
         self.jumper_guy = self.jumper.create_jumper()
@@ -31,7 +32,12 @@ class Director:
 
     def do_updates(self):
         self.hidden_word = self.puzzle.verify_letter(self.letter_input)
-        self.jumper_guy = self.jumper.create_jumper()
+        self.jumper_guy = self.jumper.get_jumper()
+        self.run = False
+        for value in self.hidden_word:
+            if value == "_":
+                self.run = True
+            
 
     def do_outputs(self):
         self.console.write(self.jumper_guy)
@@ -39,6 +45,8 @@ class Director:
 
     def run_game(self):
         while self.run:
-            self.do_inputs()
+            if self.first_run == False:
+                self.do_inputs()
             self.do_updates()
             self.do_outputs()
+            self.first_run = False

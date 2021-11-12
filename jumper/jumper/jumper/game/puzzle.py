@@ -3,7 +3,7 @@ from game.jumper import Jumper
 
 class Puzzle:
 
-    def __init__(self):
+    def __init__(self, jumper):
         self.list_words = ["bear", "giraffe", "dog", "cat", "elephant", "computer"]
         self.masked_word = []
         self.current_word = ""
@@ -11,7 +11,7 @@ class Puzzle:
         self.word_listed = []
         self.length = 0
         self.errors = 0
-        self.jumper = Jumper()
+        self.jumper = jumper
 
     def chose_word(self):
         """

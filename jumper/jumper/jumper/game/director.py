@@ -14,7 +14,7 @@ class Director:
     def __init__(self):
         self.console = Console()
         self.jumper = Jumper()
-        self.puzzle = Puzzle()
+        self.puzzle = Puzzle(self.jumper)
         self.run = True
         self.letter_input = ""
         self.jumper_guy = ""
@@ -37,6 +37,8 @@ class Director:
         for value in self.hidden_word:
             if value == "_":
                 self.run = True
+        if self.jumper.get_end_game() == True:
+            self.run = False
             
 
     def do_outputs(self):

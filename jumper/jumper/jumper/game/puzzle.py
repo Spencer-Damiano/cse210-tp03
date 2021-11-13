@@ -37,14 +37,14 @@ class Puzzle:
         """
         self.current_letter = letter
         if self.current_letter in self.current_word:
-            self.masked_word = self.reveal_letter(self.current_letter)
+            self.masked_word = self._reveal_letter(self.current_letter)
             return self.masked_word
         else:
             self.errors += 1
             self.jumper.set_num_incorrect(self.errors)
             return self.masked_word        
 
-    def reveal_letter(self, letter):
+    def _reveal_letter(self, letter):
         """
         shows letters
         """

@@ -27,10 +27,10 @@ class Director:
         self.hidden_word = self.puzzle.hided_word()
         self.run_game()
 
-    def do_inputs(self):
+    def _do_inputs(self):
         self.letter_input = self.console.get_input("Type in a letter: ")
 
-    def do_updates(self):
+    def _do_updates(self):
         self.hidden_word = self.puzzle.verify_letter(self.letter_input)
         self.jumper_guy = self.jumper.get_jumper()
         self.run = False
@@ -41,14 +41,14 @@ class Director:
             self.run = False
             
 
-    def do_outputs(self):
+    def _do_outputs(self):
         self.console.write(self.jumper_guy)
         self.console.write(self.hidden_word)
 
     def run_game(self):
         while self.run:
             if self.first_run == False:
-                self.do_inputs()
-            self.do_updates()
-            self.do_outputs()
+                self._do_inputs()
+            self._do_updates()
+            self._do_outputs()
             self.first_run = False

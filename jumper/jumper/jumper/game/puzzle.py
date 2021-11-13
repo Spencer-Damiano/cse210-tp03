@@ -41,7 +41,6 @@ class Puzzle:
             return self.masked_word
         else:
             self.errors += 1
-            print(self.errors)
             self.jumper.set_num_incorrect(self.errors)
             return self.masked_word        
 

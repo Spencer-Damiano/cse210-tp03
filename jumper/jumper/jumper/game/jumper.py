@@ -10,7 +10,6 @@ class Jumper:
         self.end_game = False
 
     def create_jumper(self):
-        print(f"jumper incorrect: {self.num_incorrect}")
         """
         if statements according to # of incorrect to decided what text output that we need
         """
